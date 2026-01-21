@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unity Sports Club - Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Teko:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="d-flex align-items-center justify-content-between mb-5">
+            <a href="index.html" class="text-white text-decoration-none">
+                <h3 class="m-0 fw-bold"><i class="fas fa-shield-alt me-2"></i>UNITY SC</h3>
+            </a>
+            <!-- Mobile Close Button -->
+            <button class="btn btn-sm btn-outline-light d-md-none" id="closeSidebar"><i
+                    class="fas fa-times"></i></button>
+        </div>
+
+        <nav class="nav flex-column">
+            <a class="nav-link active" href="#"><i class="fas fa-th-large me-2"></i> Dashboard</a>
+            <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Players</a>
+            <a class="nav-link" href="#"><i class="fas fa-trophy me-2"></i> Matches</a>
+            <a class="nav-link" href="#"><i class="fas fa-newspaper me-2"></i> News / Blog</a>
+            <a class="nav-link" href="#"><i class="fas fa-envelope me-2"></i> Messages <span
+                    class="badge bg-danger ms-auto">3</span></a>
+            <a class="nav-link" href="#"><i class="fas fa-cog me-2"></i> Settings</a>
+
+            <div class="mt-4 mb-2 px-3 text-uppercase small text-white-50 fw-bold">View Site</div>
+            <a class="nav-link" href="index.html"><i class="fas fa-home me-2"></i> Home</a>
+            <a class="nav-link" href="home-2.html"><i class="fas fa-users-cog me-2"></i> Home 2</a>
+        </nav>
+
+        <div class="mt-auto">
+            <a href="index.html" class="btn btn-outline-light w-100"><i class="fas fa-sign-out-alt me-2"></i> Logout</a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-content w-100">
+        <!-- Top bar/Mobile Toggle -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <button class="btn btn-primary d-md-none" id="openSidebar"><i class="fas fa-bars"></i></button>
+            <h2 class="fw-bold">Admin Dashboard</h2>
+            <div class="d-flex align-items-center">
+                <div class="me-3 text-end d-none d-sm-block">
+                    <small class="text-muted d-block">Welcome,</small>
+                    <span class="fw-bold">Admin User</span>
+                </div>
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0D8ABC&color=fff"
+                    class="rounded-circle shadow-sm" width="45" height="45" alt="Admin">
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted small mb-1">Total Players</p>
+                            <h3 class="fw-bold m-0">128</h3>
+                        </div>
+                        <div class="bg-primary-custom text-white rounded p-3">
+                            <i class="fas fa-running fa-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted small mb-1">Upcoming Matches</p>
+                            <h3 class="fw-bold m-0">5</h3>
+                        </div>
+                        <div class="bg-secondary-custom text-white rounded p-3">
+                            <i class="fas fa-calendar-alt fa-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted small mb-1">Fan Messages</p>
+                            <h3 class="fw-bold m-0">14</h3>
+                        </div>
+                        <div class="text-white rounded p-3 bg-warning">
+                            <i class="fas fa-comment-alt fa-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="text-muted small mb-1">Blog Posts</p>
+                            <h3 class="fw-bold m-0">342</h3>
+                        </div>
+                        <div class="bg-success text-white rounded p-3">
+                            <i class="fas fa-pen fa-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Section -->
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="card-title fw-bold m-0">Recent Match Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Opponent</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Jan 20, 2026</td>
+                                        <td><i class="fas fa-dragon text-danger me-2"></i> City Rivals</td>
+                                        <td class="fw-bold">2 - 1</td>
+                                        <td><span class="badge bg-success">Win</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jan 14, 2026</td>
+                                        <td><i class="fas fa-bolt text-warning me-2"></i> Thunder FC</td>
+                                        <td class="fw-bold">1 - 1</td>
+                                        <td><span class="badge bg-warning">Draw</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jan 07, 2026</td>
+                                        <td><i class="fas fa-shield-alt text-primary me-2"></i> North Stars</td>
+                                        <td class="fw-bold">0 - 2</td>
+                                        <td><span class="badge bg-danger">Loss</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Members -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-white border-0 py-3">
+                        <h5 class="card-title fw-bold m-0">New Members</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Sam+Smith&background=random"
+                                class="rounded-circle me-3" width="40" alt="User">
+                            <div>
+                                <h6 class="m-0 fw-bold">Sam Smith</h6>
+                                <small class="text-muted">Joined Today</small>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary ms-auto"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Jane+Doe&background=random"
+                                class="rounded-circle me-3" width="40" alt="User">
+                            <div>
+                                <h6 class="m-0 fw-bold">Jane Doe</h6>
+                                <small class="text-muted">Joined Yesterday</small>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary ms-auto"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://ui-avatars.com/api/?name=Mike+Ross&background=random"
+                                class="rounded-circle me-3" width="40" alt="User">
+                            <div>
+                                <h6 class="m-0 fw-bold">Mike Ross</h6>
+                                <small class="text-muted">Joined 3 days ago</small>
+                            </div>
+                            <button class="btn btn-sm btn-outline-primary ms-auto"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Simple Sidebar Toggle Logic for Dashboard
+        $(document).ready(function () {
+            $('#openSidebar').on('click', function () {
+                $('#sidebar').addClass('active');
+            });
+            $('#closeSidebar').on('click', function () {
+                $('#sidebar').removeClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
