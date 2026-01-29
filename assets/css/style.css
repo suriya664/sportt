@@ -189,10 +189,11 @@ a {
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 12px 28px;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 
 .btn-primary:hover {
@@ -205,17 +206,39 @@ a {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
     color: #fff;
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 12px 28px;
+    font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
+    border-radius: 5px;
 }
 
 .btn-accent {
     background-color: var(--accent-color);
     color: var(--primary-color);
+    padding: 12px 28px;
+    font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 5px;
+}
+
+/* Ensure all buttons (including bootstrap defaults used) match */
+.btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+.btn-lg {
+    padding: 16px 36px;
+    font-size: 1.1rem;
 }
 
 /* Card Styles */
@@ -285,7 +308,8 @@ a {
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    padding: 3rem 0;
+    padding: 2rem 0;
+    /* Reduced top spacing */
 }
 
 footer h5 {
@@ -309,6 +333,37 @@ footer .d-flex.text-white a {
 footer .d-flex.text-white a:hover {
     color: var(--accent-color) !important;
     transform: translateY(-3px);
+}
+
+/* Carousel Visibility & Layout */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 15px;
+    background-size: 50%;
+}
+
+[data-theme="dark"] .carousel-control-prev-icon,
+[data-theme="dark"] .carousel-control-next-icon {
+    background-color: var(--secondary-color);
+    filter: none;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner {
+        padding: 0 40px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 10%;
+    }
 }
 
 /* Theme Toggle Button */
@@ -448,6 +503,7 @@ header[class*="py-"] {
 }
 
 @media (max-width: 768px) {
+
     header.py-5,
     header.py-lg-5,
     header.py-md-5,
@@ -459,6 +515,7 @@ header[class*="py-"] {
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+
     header.py-5,
     header.py-lg-5,
     header.py-md-5,
@@ -535,5 +592,232 @@ html[data-theme="dark"] .navbar-toggler-icon {
 @media (prefers-color-scheme: dark) {
     .navbar-toggler-icon {
         filter: brightness(0) invert(1) !important;
+    }
+}
+
+/* Player Cards Refinements */
+.player-card {
+    transition: all 0.3s ease;
+    border-radius: 15px !important;
+    background: var(--bg-card);
+}
+
+.player-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.player-card .card-body {
+    padding: 1.5rem 1rem !important;
+}
+
+.player-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+[data-theme="dark"] .player-card h5 {
+    color: var(--secondary-color);
+}
+
+/* Tablet View Adjustments (769px - 1024px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    footer .input-group {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    footer .form-control {
+        height: 55px;
+        font-size: 1.1rem;
+    }
+
+    footer .btn {
+        padding: 0 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile View Adjustments (Up to 767px) */
+@media (max-width: 767px) {
+    footer .input-group {
+        width: 100%;
+    }
+
+    footer .form-control {
+        height: 50px;
+    }
+}
+
+/* Timeline/History Section Styling */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+    border-left: 3px solid var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+    border-color: var(--primary-color);
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    left: -50px;
+    /* Aligns with the border-left of .timeline */
+    top: 25px;
+    border: 4px solid var(--bg-body);
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-dot.bg-secondary {
+    box-shadow: 0 0 0 3px var(--secondary-color);
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .timeline-item {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Responsiveness for Timeline */
+@media (max-width: 768px) {
+    .timeline {
+        padding-left: 30px;
+    }
+
+    .timeline-dot {
+        left: -40px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-item {
+        padding: 15px;
+    }
+}
+
+/* Management Team Styles */
+.management-card {
+    border-radius: 20px !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.management-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.management-img-wrapper {
+    position: relative;
+    padding-top: 20px;
+}
+
+.management-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid var(--bg-body);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.management-card:hover .management-img {
+    transform: scale(1.05);
+    border-color: var(--secondary-color);
+}
+
+.manager-tag {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.management-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+[data-theme="dark"] .management-card h5 {
+    color: var(--secondary-color);
+}
+
+/* Mission & Vision Styling Refinement */
+.mission-vision-box {
+    background: var(--bg-body) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: all 0.3s ease;
+}
+
+.mission-vision-box:hover {
+    border-color: var(--primary-color) !important;
+    background: var(--bg-card) !important;
+}
+
+.mission-vision-box p {
+    color: var(--text-body) !important;
+}
+
+/* Header Text Visibility */
+header h1,
+header .lead,
+header .breadcrumb-item,
+header .breadcrumb-item a {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+header .lead {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    font-weight: 500;
+}
+
+/* Membership Section Mobile Optimization */
+@media (max-width: 576px) {
+    .membership-header {
+        margin-bottom: 2rem !important;
+    }
+
+    .membership-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .membership-header span {
+        font-size: 0.8rem;
+    }
+
+    .membership-plans .card {
+        margin-bottom: 1rem;
+    }
+
+    .transform-scale-sm {
+        transform: none !important;
     }
 }
