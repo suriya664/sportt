@@ -308,8 +308,13 @@ a {
 footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
-    padding: 2rem 0;
-    /* Reduced top spacing */
+    padding: 0 0 2rem 0;
+    /* Removed top padding */
+}
+
+/* Ensure the last section before the footer doesn't have extra bottom padding */
+section:last-of-type {
+    padding-bottom: 0 !important;
 }
 
 footer h5 {
@@ -323,6 +328,25 @@ footer a {
 
 footer a:hover {
     color: var(--accent-color);
+}
+
+.footer-brand {
+    font-family: 'Teko', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary-color) !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.footer-brand:hover {
+    color: var(--accent-color) !important;
+}
+
+.footer-brand i {
+    margin-right: 0.5rem;
 }
 
 footer .d-flex.text-white a {
@@ -428,11 +452,21 @@ body.dashboard-body {
 
 .sidebar {
     width: 280px;
-    background-color: var(--primary-color);
-    color: #fff;
+    background-color: var(--bg-card);
+    /* Changed from primary to card bg to show logo clearly */
+    color: var(--text-body);
     padding: 20px;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid var(--border-color);
+}
+
+.sidebar h3 {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .sidebar h3 {
+    color: var(--secondary-color) !important;
 }
 
 .sidebar .nav-link {
@@ -473,14 +507,38 @@ body.dashboard-body {
     text-align: center;
 }
 
+.auth-social-icon {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.auth-social-icon:hover {
+    transform: scale(1.15) translateY(-3px);
+    color: var(--secondary-color) !important;
+    background-color: rgba(46, 204, 113, 0.1) !important;
+}
+
+[data-theme="dark"] .auth-social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 /* Responsive Fixes */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+
+    /* Increased from 768px to include tablets */
     .sidebar {
         position: fixed;
         left: -280px;
         height: 100%;
         z-index: 1000;
         transition: left 0.3s ease;
+        background-color: var(--primary-color);
+        /* Kept primary for overlay feel */
+        color: #fff;
+    }
+
+    .sidebar h3 {
+        color: #fff !important;
+        /* White only on mobile/tablet overlay for contrast */
     }
 
     .sidebar.active {
@@ -622,19 +680,26 @@ html[data-theme="dark"] .navbar-toggler-icon {
 
 /* Tablet View Adjustments (769px - 1024px) */
 @media (min-width: 768px) and (max-width: 991px) {
+
+    footer .col-md-4,
+    footer .col-md-2 {
+        width: 50% !important;
+        margin-bottom: 2rem;
+    }
+
     footer .input-group {
-        max-width: 400px;
-        margin: 0 auto;
+        max-width: 100% !important;
+        margin: 0;
     }
 
     footer .form-control {
-        height: 55px;
+        height: 60px;
         font-size: 1.1rem;
     }
 
     footer .btn {
-        padding: 0 25px;
-        font-size: 1rem;
+        padding: 0 30px;
+        font-size: 1.1rem;
     }
 }
 
