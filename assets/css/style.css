@@ -470,10 +470,27 @@ body.dashboard-body {
 }
 
 .sidebar .nav-link {
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: var(--primary-color) !important;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+    color: #fff !important;
+}
+
+[data-theme="dark"] .sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+[data-theme="dark"] .sidebar .nav-link:hover,
+[data-theme="dark"] .sidebar .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--input-color) !important;
 }
 
 .sidebar .nav-link:hover,
@@ -607,9 +624,71 @@ header[style*="background-image"] {
     object-fit: cover;
 }
 
+.product-card {
+    transition: all 0.4s ease;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-card);
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--secondary-color);
+}
+
 .product-card .card-img-top {
-    max-height: 180px;
+    height: 280px;
     object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+.product-card .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(180deg, var(--bg-card) 0%, rgba(var(--primary-color), 0.05) 100%);
+}
+
+.product-card h5 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+[data-theme="dark"] .product-card h5 {
+    color: var(--text-body);
+}
+
+.product-card .text-muted {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color) !important;
+}
+
+.product-card .btn {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 12px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.product-card .btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 .sponsor-icons i {
@@ -651,6 +730,82 @@ html[data-theme="dark"] .navbar-toggler-icon {
     .navbar-toggler-icon {
         filter: brightness(0) invert(1) !important;
     }
+}
+
+/* Feature Card Design */
+.feature-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--bg-card);
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-bottom: 4px solid transparent;
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: var(--primary-color);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--secondary-color);
+}
+
+.feature-card:hover::before {
+    height: 100%;
+}
+
+.feature-card .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--primary-color-rgb), 0.1);
+    /* Fallback or variable need */
+    background: #f0f2f5;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .feature-card .icon-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+}
+
+.feature-card:hover .icon-wrapper {
+    background: #fff;
+    color: var(--primary-color);
+    transform: rotateY(180deg);
+}
+
+.feature-card h4 {
+    transition: color 0.3s ease;
+    font-weight: 700;
+}
+
+.feature-card:hover h4 {
+    color: #fff;
+}
+
+.feature-card p {
+    transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Player Cards Refinements */
