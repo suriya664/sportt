@@ -312,9 +312,9 @@ footer {
     /* Removed top padding */
 }
 
-/* Ensure the last section before the footer doesn't have extra bottom padding */
+/* Add proper spacing above footer */
 section:last-of-type {
-    padding-bottom: 0 !important;
+    padding-bottom: 4rem !important;
 }
 
 footer h5 {
@@ -459,6 +459,7 @@ body.dashboard-body {
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border-color);
+    min-height: 100vh;
 }
 
 .sidebar h3 {
@@ -470,10 +471,11 @@ body.dashboard-body {
 }
 
 .sidebar .nav-link {
-    color: var(--primary-color) !important;
+    color: #212529 !important;
     padding: 10px 15px;
     border-radius: 8px;
     margin-bottom: 5px;
+    transition: all 0.3s ease;
     font-weight: 600;
 }
 
@@ -483,6 +485,16 @@ body.dashboard-body {
     color: #fff !important;
 }
 
+[data-theme="dark"] .sidebar {
+    background-color: var(--primary-color);
+    /* Kept primary for overlay feel */
+    color: #fff;
+}
+
+[data-theme="dark"] .sidebar h3 {
+    color: var(--secondary-color) !important;
+}
+
 [data-theme="dark"] .sidebar .nav-link {
     color: rgba(255, 255, 255, 0.8) !important;
 }
@@ -490,13 +502,31 @@ body.dashboard-body {
 [data-theme="dark"] .sidebar .nav-link:hover,
 [data-theme="dark"] .sidebar .nav-link.active {
     background-color: rgba(255, 255, 255, 0.1);
-    color: var(--input-color) !important;
+    color: var(--secondary-color) !important;
 }
 
-.sidebar .nav-link:hover,
-.sidebar .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-color) !important;
+/* Ensure logout button is visible */
+.sidebar .btn-outline-light {
+    color: var(--text-body) !important;
+    border-color: var(--border-color) !important;
+    background-color: transparent !important;
+}
+
+.sidebar .btn-outline-light:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .sidebar .btn-outline-light {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+[data-theme="dark"] .sidebar .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    color: #ffffff !important;
 }
 
 .dashboard-content {
@@ -538,6 +568,103 @@ body.dashboard-body {
     background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Dashboard Mobile Improvements */
+@media (max-width: 768px) {
+    .dashboard-content {
+        padding: 1rem !important;
+        font-size: 16px !important;
+    }
+    
+    .dashboard-content h2 {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .dashboard-content .card {
+        margin-bottom: 1rem !important;
+        font-size: 14px !important;
+    }
+    
+    .dashboard-content .card h3 {
+        font-size: 1.25rem !important;
+    }
+    
+    .dashboard-content .card p {
+        font-size: 0.9rem !important;
+    }
+    
+    .dashboard-content .table {
+        font-size: 0.85rem !important;
+    }
+    
+    .dashboard-content .table th {
+        font-size: 0.85rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    .dashboard-content .table td {
+        font-size: 0.8rem !important;
+        padding: 0.5rem !important;
+    }
+    
+    .dashboard-content .badge {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    .dashboard-content .btn {
+        font-size: 0.85rem !important;
+        padding: 8px 12px !important;
+    }
+    
+    .dashboard-content .img-fluid {
+        max-width: 35px !important;
+        max-height: 35px !important;
+    }
+    
+    .dashboard-content .d-flex.align-items-center {
+        font-size: 0.9rem !important;
+    }
+    
+    .dashboard-content .small {
+        font-size: 0.75rem !important;
+    }
+    
+    .dashboard-content .fw-bold {
+        font-size: 0.95rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-content {
+        padding: 0.75rem !important;
+        font-size: 15px !important;
+    }
+    
+    .dashboard-content h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .dashboard-content .card {
+        font-size: 13px !important;
+        padding: 1rem !important;
+    }
+    
+    .dashboard-content .card h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .dashboard-content .table {
+        font-size: 0.8rem !important;
+    }
+    
+    .dashboard-content .table th,
+    .dashboard-content .table td {
+        font-size: 0.75rem !important;
+        padding: 0.4rem !important;
+    }
+}
+
 /* Responsive Fixes */
 @media (max-width: 991px) {
 
@@ -556,6 +683,37 @@ body.dashboard-body {
     .sidebar h3 {
         color: #fff !important;
         /* White only on mobile/tablet overlay for contrast */
+    }
+    
+    /* Light mode sidebar nav links */
+    .sidebar .nav-link {
+        color: #fff !important;
+    }
+    
+    .sidebar .nav-link:hover,
+    .sidebar .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff !important;
+    }
+    
+    /* Dark mode overrides */
+    [data-theme="dark"] .sidebar {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
+    
+    [data-theme="dark"] .sidebar h3 {
+        color: var(--secondary-color) !important;
+    }
+    
+    [data-theme="dark"] .sidebar .nav-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    [data-theme="dark"] .sidebar .nav-link:hover,
+    [data-theme="dark"] .sidebar .nav-link.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--secondary-color) !important;
     }
 
     .sidebar.active {
@@ -732,6 +890,181 @@ html[data-theme="dark"] .navbar-toggler-icon {
     }
 }
 
+/* Mobile Navigation Menu Fix */
+@media (max-width: 991px) {
+    /* Ensure navbar is visible */
+    .navbar {
+        background-color: var(--navbar-bg) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding: 0.5rem 0 !important;
+    }
+    
+    /* Fix collapsed menu positioning */
+    .navbar-collapse {
+        background-color: var(--navbar-bg);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        margin-top: 0.5rem;
+        border: 1px solid var(--border-color);
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: 1000;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    /* Ensure menu is visible when expanded */
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    
+    .navbar-nav {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .navbar-nav .nav-item {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-link {
+        color: var(--navbar-text) !important;
+        padding: 0.75rem 1rem !important;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(0, 31, 63, 0.1);
+        color: var(--primary-color) !important;
+        transform: translateX(5px);
+    }
+    
+    .navbar-nav .nav-link.active {
+        background-color: var(--primary-color);
+        color: #ffffff !important;
+    }
+    
+    /* Dark theme mobile menu */
+    [data-theme="dark"] .navbar {
+        background-color: var(--navbar-bg) !important;
+    }
+    
+    [data-theme="dark"] .navbar-collapse {
+        background-color: var(--bg-card);
+        border-color: var(--border-color);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    
+    [data-theme="dark"] .navbar-nav .nav-link {
+        color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--secondary-color) !important;
+    }
+    
+    [data-theme="dark"] .navbar-nav .nav-link.active {
+        background-color: var(--primary-color);
+        color: #ffffff !important;
+    }
+    
+    /* Mobile buttons in menu */
+    .navbar-nav .nav-item.ms-lg-3 {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        width: 100%;
+    }
+    
+    .navbar-nav .nav-item.ms-lg-3 .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    /* Theme toggle buttons in mobile */
+    .navbar-nav .nav-item.ms-3 {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .navbar-nav .nav-item.ms-3 .btn {
+        flex: 1;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.6rem 0.5rem;
+    }
+    
+    /* Dark theme mobile borders */
+    [data-theme="dark"] .navbar-nav .nav-item.ms-lg-3,
+    [data-theme="dark"] .navbar-nav .nav-item.ms-3 {
+        border-top-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Ensure hamburger button is visible */
+    .navbar-toggler {
+        display: block !important;
+        border: 2px solid var(--navbar-text) !important;
+        padding: 8px 12px !important;
+        background-color: transparent !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(0, 31, 63, 0.25) !important;
+    }
+    
+    [data-theme="dark"] .navbar-toggler {
+        border-color: #ffffff !important;
+    }
+    
+    [data-theme="dark"] .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+    }
+}
+
+/* Small mobile phones (max-width: 576px) */
+@media (max-width: 576px) {
+    .navbar-collapse {
+        margin-top: 0.25rem;
+        padding: 0.75rem 0;
+    }
+    
+    .navbar-nav {
+        padding: 0 0.75rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.6rem 0.75rem !important;
+        font-size: 0.9rem;
+    }
+    
+    .navbar-nav .nav-item.ms-lg-3 .btn,
+    .navbar-nav .nav-item.ms-3 .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
 /* Feature Card Design */
 .feature-card {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -867,6 +1200,371 @@ html[data-theme="dark"] .navbar-toggler-icon {
     footer .form-control {
         height: 50px;
     }
+}
+
+/* Blog Page Specific Styles */
+.blog-post-card {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post-card .col-md-4,
+.blog-post-card .col-md-8 {
+    padding: 0;
+}
+
+.blog-post-card img {
+    transition: transform 0.3s ease;
+}
+
+.blog-post-card:hover img {
+    transform: scale(1.05);
+}
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* Reduce white space in blog page */
+section.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+.blog-post-card {
+    margin-bottom: 0.75rem !important;
+}
+
+.text-center.mb-5 {
+    margin-bottom: 1rem !important;
+}
+
+.row.g-4 {
+    gap: 0.75rem !important;
+}
+
+.col-md-6.col-lg-12,
+.col-md-6.col-lg-12 {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Reduce sidebar spacing */
+.col-lg-4 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+/* Blog Page Mobile Improvements - Center Content */
+@media (max-width: 768px) {
+    .blog-post-card {
+        text-align: center !important;
+    }
+    
+    .blog-post-card .row {
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .blog-post-card .col-md-4,
+    .blog-post-card .col-md-8 {
+        width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    
+    .blog-post-card h4 {
+        font-size: 1.2rem !important;
+        text-align: center !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .blog-post-card p {
+        font-size: 0.95rem !important;
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .blog-post-card .badge {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .blog-post-card .btn {
+        font-size: 0.9rem !important;
+        padding: 10px 20px !important;
+    }
+    
+    .pagination {
+        justify-content: center !important;
+        margin-top: 2rem !important;
+    }
+    
+    .pagination .page-link {
+        font-size: 0.9rem !important;
+        padding: 10px 15px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-post-card h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .blog-post-card p {
+        font-size: 0.9rem !important;
+    }
+    
+    .blog-post-card .badge {
+        font-size: 0.75rem !important;
+    }
+    
+    .blog-post-card .btn {
+        font-size: 0.85rem !important;
+        padding: 8px 16px !important;
+    }
+    
+    .pagination .page-link {
+        font-size: 0.85rem !important;
+        padding: 8px 12px !important;
+    }
+}
+
+/* Mobile Blog Layout Improvements */
+@media (max-width: 768px) {
+    .blog-post-card .col-md-4,
+    .blog-post-card .col-md-8 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-post-card .row {
+        flex-direction: column;
+    }
+    
+    .blog-post-card img {
+        min-height: 200px;
+        width: 100%;
+    }
+    
+    .blog-post-card .card-body {
+        padding: 1rem !important;
+    }
+    
+    .blog-post-card h4 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .blog-post-card p {
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .blog-post-card .badge {
+        font-size: 0.75rem !important;
+        padding: 4px 8px !important;
+    }
+    
+    .blog-post-card .btn {
+        padding: 8px 16px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-post-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .blog-post-card img {
+        min-height: 180px;
+    }
+    
+    .blog-post-card .card-body {
+        padding: 0.75rem !important;
+    }
+    
+    .blog-post-card h4 {
+        font-size: 1rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    .blog-post-card p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .blog-post-card .badge {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .blog-post-card .btn {
+        width: 100%;
+        padding: 10px 16px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Better sidebar mobile layout */
+@media (max-width: 768px) {
+    .col-lg-4 {
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .col-lg-4 .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .col-lg-4 h4 {
+        font-size: 1.1rem !important;
+    }
+    
+    .col-lg-4 .badge {
+        font-size: 0.8rem !important;
+        padding: 4px 10px !important;
+    }
+    
+    .col-lg-4 .btn {
+        width: 100%;
+        padding: 10px 16px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-lg-4 {
+        margin-top: 1.5rem;
+        padding: 0 0.75rem;
+    }
+    
+    .col-lg-4 .card {
+        margin-bottom: 1rem;
+    }
+    
+    .col-lg-4 h4 {
+        font-size: 1rem !important;
+    }
+    
+    .col-lg-4 .badge {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* Pagination mobile improvements */
+@media (max-width: 768px) {
+    .pagination .page-link {
+        padding: 8px 12px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .pagination .page-link {
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Mobile header improvements */
+@media (max-width: 768px) {
+    .text-center.mb-5 h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .text-center.mb-5 p {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .text-center.mb-5 h2 {
+        font-size: 1.3rem !important;
+    }
+    
+    .text-center.mb-5 p {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Responsive Blog Layout */
+@media (max-width: 768px) {
+    .blog-post-card .col-md-4,
+    .blog-post-card .col-md-8 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-post-card .row {
+        flex-direction: column;
+    }
+    
+    .blog-post-card img {
+        min-height: 200px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-post-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .blog-post-card img {
+        min-height: 180px;
+    }
+}
+
+/* Sidebar enhancements */
+.blog-sidebar .card {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.blog-sidebar .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.blog-sidebar .badge {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.blog-sidebar .badge:hover {
+    transform: translateY(-2px);
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /* Timeline/History Section Styling */
