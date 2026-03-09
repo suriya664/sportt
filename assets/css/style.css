@@ -246,6 +246,17 @@ a {
     color: #fff;
 }
 
+.btn-outline-primary {
+    color: #001F3F;
+    border-color: #001F3F;
+}
+
+.btn-outline-primary:hover {
+    background-color: #001F3F;
+    border-color: #001F3F;
+    color: #fff;
+}
+
 .btn-secondary {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
