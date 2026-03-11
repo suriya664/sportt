@@ -5,8 +5,8 @@
 
 :root {
     /* Color Palette - Sports Premium */
-    --primary-color: #001f3f;
-    /* Deep Navy */
+    --primary-color: #28e276;
+    /* Vibrant Green (Relates to logo) */
     --secondary-color: #2ECC71;
     /* Sports Green */
     --accent-color: #F1C40F;
@@ -21,9 +21,9 @@
     --border-color: #dee2e6;
 
     --navbar-bg: rgba(255, 255, 255, 0.95);
-    --navbar-text: #001f3f;
+    --navbar-text: #000000;
 
-    --footer-bg: #001f3f;
+    --footer-bg: #28e276;
     --footer-text: #ffffff;
 }
 
@@ -247,13 +247,13 @@ a {
 }
 
 .btn-outline-primary {
-    color: #001F3F;
-    border-color: #001F3F;
+    color: #28e276;
+    border-color: #28e276;
 }
 
 .btn-outline-primary:hover {
-    background-color: #001F3F;
-    border-color: #001F3F;
+    background-color: #28e276;
+    border-color: #28e276;
     color: #fff;
 }
 
@@ -429,7 +429,7 @@ body {
     font-family: 'Teko', sans-serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
 }
 
 [data-theme="dark"] .navbar-brand {
@@ -462,7 +462,7 @@ body {
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
 }
 
 /* Footer */
